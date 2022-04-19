@@ -1,10 +1,9 @@
 <template>
   <div class="home">
     <ol>
-      <li v-for="commit in commits" :key="commit.url">
-        <!-- <router-link :to="'/commit_details/' + commit.sha">{{ commit.sha }}</router-link> -->
-        <router-link :to="{ name: 'About', params: { url: commit.url } }">{{
-          commit.url
+      <li v-for="knjiga in knjige" :key="knjige.url">
+        <router-link :to="{ name: 'About', params: { url: knjiga.url } }">{{
+          knjiga.url
         }}</router-link>
       </li>
     </ol>
@@ -16,7 +15,7 @@ export default {
   name: "home",
   data() {
     return {
-      commits: [],
+      knjige: [],
     };
   },
 
@@ -25,7 +24,7 @@ export default {
       "https://www.anapioficeandfire.com/api/books"
     );
     let response = await get_request.json();
-    this.commits = response;
+    this.knjige = response;
   },
 };
 </script>
